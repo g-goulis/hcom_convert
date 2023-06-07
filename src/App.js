@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './css/style.css';
 import './css/font-awesome.min.css';
 import FrameManager from "./components/FrameManager";
-
 function App() {
   return (
     <div className="App">

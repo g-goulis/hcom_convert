@@ -1,10 +1,12 @@
 // FrameManager.js
 import React, { useState } from 'react';
-import QuestionFrameContainer from './question/QuestionFrameContainer';
+import QuestionFrame from './question/QuestionFrame';
 import MultipleChoiceQuestion from './question/MultipleChoiceQuestion';
-import TrueFalseQuestion from './question/TrueFalseQuestion';
 import FreeResponseQuestion from './question/FreeResponseQuestion';
 import VideoPlayer from "./VideoPlayer";
+
+import EnglishQuestions from "../data/EnglishData.json"
+import Popup from "./question/Popup";
 
 const FrameManager = () => {
     const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
@@ -13,23 +15,13 @@ const FrameManager = () => {
     const frames = [
         {
             type: 'video',
-        },
-        {
-            type: 'multiple-choice',
-            question: 'Question 1',
-            options: ['Option 1', 'Option 2', 'Option 3'],
-        },
-        {
-            type: 'free-response',
-            question: 'Question 2',
-        },
-        // Add more frames/questions as needed
+        }, ...EnglishQuestions
     ];
 
-    const handleNextFrame = (response) => {
-        setCurrentFrameIndex((prevIndex) => prevIndex + 1);
-        setResponses((prevResponses) => [...prevResponses, response]);
-    };
+    // const handleNextFrame = (isCorrect) => {
+    //     setCurrentFrameIndex((prevIndex) => prevIndex + 1);
+    //     setResponses((prevResponses) => [...prevResponses, response]);
+    // };
 
     const currentFrame = frames[currentFrameIndex];
 
@@ -37,26 +29,28 @@ const FrameManager = () => {
         if (currentFrame) {
             if (currentFrame.type === 'multiple-choice') {
                 return (
-                    <QuestionFrameContainer>
+                    <QuestionFrame setCurrentFrameIndex={setCurrentFrameIndex}>
                         <MultipleChoiceQuestion
                             question={currentFrame.question}
                             options={currentFrame.options}
-                            onNext={handleNextFrame}
+                            index={currentFrameIndex}
                         />
-                    </QuestionFrameContainer>
+                    </QuestionFrame>
                 );
             } else if (currentFrame.type === 'free-response') {
                 return (
-                    <QuestionFrameContainer>
+                    <QuestionFrame>
                         <FreeResponseQuestion
                             question={currentFrame.question}
-                            onNext={handleNextFrame}
                         />
-                    </QuestionFrameContainer>
+                    </QuestionFrame>
                 );
             } else if (currentFrame.type === 'video') {
                 return (
-                    <VideoPlayer />
+                    <div>
+                        <VideoPlayer />
+                        <button onClick={() => setCurrentFrameIndex((prevIndex) => prevIndex + 1)}>Video Next</button>
+                    </div>
                 );
             }
         }
@@ -66,8 +60,7 @@ const FrameManager = () => {
 
     return (
         <div>
-        {renderFrame()}
-        <button onClick={() => handleNextFrame({})}>Next Page</button>
+            {renderFrame()}
         </div>
     );
 };

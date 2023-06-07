@@ -1,0 +1,104 @@
+[
+  {
+    "type": "multiple-choice",
+    "question": "What is the best way for Partners to “Spot the Fakes?”",
+    "options": [
+      {
+        "value": "0",
+        "text": "Always check inside coolers and other items Customers are purchasing"
+      },
+      {
+        "value": "0",
+        "text": "Always check B.O.B (Bottom Of Basket)"
+      },
+      {
+        "value": "0",
+        "text": "Always move large items in shopping carts to ensure nothing is hidden underneath"
+      },
+      {
+        "value": "1",
+        "text": "All of the above"
+      }
+    ]
+  },
+  {
+    "type": "multiple-choice",
+    "question": "What is Pushout Theft?",
+    "options": [
+      {
+        "value": "0",
+        "text": "When shoplifters push managers who try to stop them from stealing"
+      },
+      {
+        "value": "1",
+        "text": "When a shoplifter pushes out a basket of unpaid merchandise"
+      },
+      {
+        "value": "0",
+        "text": "When a shoplifter runs out the door"
+      },
+      {
+        "value": "0",
+        "text": "None of the Above"
+      }
+    ]
+  },
+  {
+    "type": "multiple-choice",
+    "question": "Staying alert and paying attention to what’s in-side shopping carts reduces loss: True or False?",
+    "options": [
+      {
+        "value": "1",
+        "text": "True"
+      },
+      {
+        "value": "0",
+        "text": "False"
+      }
+    ]
+  },
+  {
+    "type": "multiple-choice",
+    "question": "Which of the following behaviors might be con-sidered suspicious?",
+    "options": [
+      {
+        "value": "0",
+        "text": "A shopping cart lined with bags of dog food, with a weekly ad covering the middle of the cart"
+      },
+      {
+        "value": "0",
+        "text": "An entire shopping cart full of Tide detergent"
+      },
+      {
+        "value": "0",
+        "text": "A Customer who spends more time watching Partners than looking for merchandise"
+      },
+      {
+        "value": "1",
+        "text": "All of the Above"
+      }
+    ]
+  },
+  {
+    "type": "multiple-choice",
+    "question": "When is it permissible for a Partner to touch a shoplifter?",
+    "options": [
+      {
+        "value": "1",
+        "text": "Never"
+      },
+      {
+        "value": "0",
+        "text": "If shoplift attempts to leave before the Police arrive"
+      },
+      {
+        "value": "0",
+        "text": "When merchandise is concealed in their clothing"
+      },
+      {
+        "value": "0",
+        "text": "When a shoplifter looks like they are about to run"
+      }
+    ]
+  }
+]
