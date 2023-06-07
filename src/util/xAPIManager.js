@@ -1,33 +1,32 @@
-//
-// import xAPI from "./util/xapiwrapper";
-//
-// function sendBasicStatement(verbID, verb, objectName, objectDesc){
-//     let statement = {
-//         "actor": {
-//             "mbox": "mailto:"+email,
-//             "name": name,
-//             "objectType": "Agent"
-//         },
-//         "verb": {
-//             "id": verbID,
-//             "display": {
-//                 "en-US": verb
-//             }
-//         },
-//         "object": {
-//             "id": config.courseURI,
-//             "definition": {
-//                 "name": {
-//                     "en-US": objectName
-//                 },
-//                 "description": {
-//                     "en-US": objectDesc
-//                 }
-//             },
-//             "objectType": "Activity"
-//         }
-//     };
-//     console.log("SENDING ", statement)
-//     ADL.XAPIWrapper.sendStatement(statement);
-//     xAPI.ADL.XAPIWrapper.sendStatement()
-// }
+/* eslint-disable */
+import xAPIConfig from './config';
+
+class xAPIManager {
+    constructor() {
+        // Initialize your xAPIManager object here
+        // You can set up any necessary properties or perform any initialization logic
+        const conf = {
+            "endpoint" : xAPIConfig.endPointRef,
+            "auth" : "Basic " + toBase64(xAPIConfig.keyRef + ":" + xAPIConfig.secretRef),
+        };
+        ADL.XAPIWrapper.changeConfig(conf);
+    }
+
+    // Define your xAPIManager functions here
+    // These functions can be called by components
+
+    sendStatement(statement) {
+        // Implementation of sending a statement via xAPI
+        // Example code:
+        // xAPI send statement logic
+    }
+
+    // Other functions...
+
+}
+
+// Create a singleton instance of xAPIManager
+const instance = new xAPIManager();
+
+// Export the instance as the default export
+export default instance;

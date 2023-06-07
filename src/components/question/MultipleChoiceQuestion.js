@@ -14,7 +14,7 @@ const MultipleChoiceQuestion = ({question, options, index, setSelectedOption, se
 
 
     return (
-        <QuestionContainer>
+        <div>
             <span className="question"> {question} </span>
             <div className="ans_option">
                 {options.map( (option, index) => {
@@ -31,7 +31,7 @@ const MultipleChoiceQuestion = ({question, options, index, setSelectedOption, se
                     )}
                 )}
             </div>
-        </QuestionContainer>
+        </div>
     );
 };
 

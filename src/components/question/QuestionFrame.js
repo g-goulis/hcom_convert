@@ -30,14 +30,17 @@ const QuestionFrame = ({setCurrentFrameIndex, children}) => {
 
 
     return (
-        <div id="equestion2" className="question_wrap ">
+        <div id="equestion2" className="question_wrap">
             <div className="white_wrap">
                 <div className="qstn_wrap">
                     {showPopup
                         && (<Popup popupTitle={popupTitle} popupDescription={popupDescription} setShowPopup={setShowPopup} updateQuestion={setCurrentFrameIndex}/>)}
                     {questionWithSetters}
-                    <button onClick={() => handleQuestionAnswered()}>Next Page</button>
                 </div>
+            </div>
+            <div className="com_logo" />
+            <div className="btn-wrap">
+                <input type="button" name="submit" className="en-submit-btn" value="SUBMIT/ENVIAR" onClick={() => handleQuestionAnswered()} />
             </div>
         </div>
     );
