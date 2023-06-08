@@ -2,9 +2,28 @@ import './css/style.css';
 import './css/font-awesome.min.css';
 import xAPIConfig from './util/config';
 import FrameManager from "./components/FrameManager";
-import {useEffect} from "react";
+import xAPIManager from "./util/xAPIManager";
+
+import {useEffect, useState} from "react";
 function App() {
+
+    const [xAPIController, setxAPIController] = useState(null);
+
     useEffect(() => {
+        const fetchXAPIManager = async () => {
+            const { default: xAPIManager } = await import('./util/xAPIManager');
+
+            // Example usage: Creating an instance and sending a statement
+            const instance = new xAPIManager();
+            setxAPIController(instance);
+        };
+
+        fetchXAPIManager().then(r => {
+
+            xAPIController.sendStatement()
+        });
+
+        setxAPIController(xAPIManager)
         const conf = {
             "endpoint" : xAPIConfig.endPointRef,
             /* eslint-disable */

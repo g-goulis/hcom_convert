@@ -6,7 +6,7 @@ import FreeResponseQuestion from './question/FreeResponseQuestion';
 import VideoPlayer from "./VideoPlayer";
 
 import EnglishQuestions from "../data/EnglishData.json"
-import Popup from "./question/Popup";
+import PDFViewer from "./PDFViewer";
 
 const FrameManager = () => {
     const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
@@ -19,7 +19,11 @@ const FrameManager = () => {
         {
             type: 'video',
         },
-        ...EnglishQuestions,
+        // ...EnglishQuestions,
+        {
+            type: 'pdf',
+            url: process.env.PUBLIC_URL + "/HEBSample.pdf"
+        },
         {
             type: 'completed'
         }
@@ -84,7 +88,7 @@ const FrameManager = () => {
                         <VideoPlayer />
                         <div className="com_logo width100">
                             <div className="com-logo-img ">
-                                <img src={process.env.PUBLIC_URL + "heb-counts-on-me-logo.png"} alt="HEB Count on Me Logo"/>
+                                <img src={process.env.PUBLIC_URL + "/heb-counts-on-me-logo.png"} alt="HEB Count on Me Logo"/>
                             </div>
                             <div className="btns_next_logo eng_ver">
                                 <a href="javascript:void(0);" className="next_btn"><span>Next</span></a>
@@ -96,6 +100,10 @@ const FrameManager = () => {
                         <button onClick={() => setCurrentFrameIndex((prevIndex) => prevIndex + 1)}>Video Next</button>
                     </div>
                 );
+            } else if (currentFrame.type === 'pdf') {
+                return (
+                    <PDFViewer url={process.env.PUBLIC_URL + "/HEBSample.pdf"}/>
+                )
             } else if (currentFrame.type === 'completed') {
                 return (
                     <div className="thankyou_wrap ethanku_wrap">
